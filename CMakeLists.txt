@@ -1,0 +1,6 @@
+cmake_minimum_required(VERSION 2.8) 
+project(Machine_Learning)
+COMMAND(a b)
+MESSAGE(a b)
+add_subdirectory(src)
+add_subdirectory(test)
