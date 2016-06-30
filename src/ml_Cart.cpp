@@ -363,8 +363,8 @@ double CCart::CalcInfo(double * pdHist, int nLen, int nInfoType)
     int i = 0;
     for (i = 0; i < nLen; i++) dSum += pdHist[i];
     double dInfo = 0.0f;
-    if (dSum < 1e-15) return 0;
-    dSum = 1.0f / dSum;
+    if (dSum < 1e-15) return 0;    
+    dSum = 1.0f / dSum;  
     for (i = 0; i < nLen; i++)
     {
         double p = pdHist[i] * dSum;
@@ -379,11 +379,7 @@ double CCart::CalcInfo(double * pdHist, int nLen, int nInfoType)
         }
     }
 
-    if (INFO_GINI == nInfoType)
-    {
-        dInfo = 1 - dInfo;
-    }
-    //dInfo = 1 - dInfo;
+    dInfo = 1 - dInfo;
     return dInfo;
 }
 
@@ -399,18 +395,6 @@ void CCart::FindMinInfoC(CDataSet * ptTrainSamples, int nFeatureId, int * pnSamp
     TypeF *pFeature1 = NULL;
     TypeF *pFeature2 = NULL;
     nIdx = -1;
-    //for (nIdx = 0; nIdx < nSampleCnt - 1; nIdx++)
-    //{
-    //    nSampleId = pnSampleIdx[nIdx];
-    //    nLabel = ptTrainSamples->GetLabel(nSampleId);
-    //    nLableIdx = m_mLabelMap[nLabel];
-    //    dWeight = ptTrainSamples->GetWeight(nSampleId);
-    //    vdLHist[nLableIdx] += dWeight;
-
-    //    pFeature1 = ptTrainSamples->GetFeature(pnSampleIdx[nIdx]);
-    //    pFeature2 = ptTrainSamples->GetFeature(pnSampleIdx[nIdx + 1]);
-    //    if (pFeature1[nFeatureId] != pFeature2[nFeatureId]) break;
-    //}
     for (i = nIdx + 1; i < nSampleCnt; i++)
     {
         nSampleId = pnSampleIdx[i];

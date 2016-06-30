@@ -22,7 +22,7 @@ The main frame of the repository is as follows:
     |
     |-----CCrossValidate(this class implemented the k-folder and leave-one-out cross validation
 
-you can referance the main.cpp to find how to call each learner.
+you can get how to use each learner in main.cpp.
 
 ## How to complie this project
 This project is organized with cmake.    
