@@ -3,9 +3,9 @@
 ---
 ## Desciption
 
-  This repository provided some basic machine learning algothms, but you can combine them to be a complex learner
-in your own way.    
-  All the learning algorithms are implemented with a uniform interface.
+  This repository provided some basic machine learning algothms, which can be combined flexibly due to your own application. such as  bootstrap train in face detection, pedestrian detection or other else. And boosting learners(bagging, random forest, adaboost) are designed to run step by step if needed. For example, if you want to train a random forest with 1000 trees, you can train 200 trees firstly, then train 300 trees later,...,until the learner meets you demands. I think this may help you saving much time to analyize the optimal performence parameters. 
+  
+  All the learning algorithms are implemented with a set of uniform interface.
 The main frame of the repository is as follows:    
 
     |
@@ -40,4 +40,6 @@ to run the program
 
 
 ## Others
+This code is for general usage. So it can be optimized acordding to your usage. You can do it by your self.
+
 Also, you can contact jcchen1987@163.com if you have any questions or advices about the reposity.
