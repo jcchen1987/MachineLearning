@@ -25,8 +25,8 @@ The main frame of the repository is as follows:
 you can referance the main.cpp to find how to call each learner.
 
 ## How to complie this project
-This project is organized with cmake.
-you can use cmake-gui to generate the project on windows / linux
+This project is organized with cmake.    
+you can use ***cmake-gui*** to generate the project on windows / linux.    
 while in command line mode, you can generate and complie the project with the following commands:
 > ***mkdir build***    
 > ***cd build***    
