@@ -213,14 +213,13 @@ int CAdaBoost::Save(FILE *& pf)
     fwrite(&m_eBoostType, sizeof(EBoostType), 1, pf);
   
     int nLen;
-    nLen = m_vCart.size();
-    fwrite(&nLen, sizeof(int), 1, pf);
+    nLen = m_nMaxTreeCnt;
     if (nLen > 0)
     {
         fwrite(&m_vdAlpha[0], sizeof(double), nLen, pf);
         fwrite(&m_vdTheta[0], sizeof(double), nLen, pf);
     }
-    
+
     for (int i = 0; i < nLen; i++)
     {
         m_vCart[i].Save(pf);
@@ -238,19 +237,18 @@ int CAdaBoost::Load(FILE *& pf)
     fread(&m_dRecall, sizeof(double), 1, pf);
     fread(&m_eBoostType, sizeof(EBoostType), 1, pf);
 
-    int nLen;
-    fread(&nLen, sizeof(int), 1, pf);
+    int nLen = m_nMaxTreeCnt;
     if (nLen > 0)
     {
         m_vCart.resize(nLen);
         m_vdAlpha.resize(nLen);
         m_vdTheta.resize(nLen);
-        fwrite(&m_vdAlpha[0], sizeof(double), nLen, pf);
-        fwrite(&m_vdTheta[0], sizeof(double), nLen, pf);
+        fread(&m_vdAlpha[0], sizeof(double), nLen, pf);
+        fread(&m_vdTheta[0], sizeof(double), nLen, pf);
     }
     for (int i = 0; i < nLen; i++)
     {
-        m_vCart[i].Save(pf);
+        m_vCart[i].Load(pf);
     }
     return 0;
 }
